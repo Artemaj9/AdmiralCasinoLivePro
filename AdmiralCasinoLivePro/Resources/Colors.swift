@@ -7,8 +7,12 @@ import SwiftUI
 
 enum Pallete {
     static let yellowtxt = "yellowtxt"
+    static let timergray = Color("timergray")
+    static let sessionShdw = Color("sessionShadow")
+    static let income = Color("incomegreen")
+    static let outcome = Color("outcomered")
+    static let yellowstat = Color("statyellow")
 }
-
 
 let historyReflection  = LinearGradient(
     colors: [

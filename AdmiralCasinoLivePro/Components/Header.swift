@@ -15,7 +15,7 @@ struct Header: View {
             Image(Img.header)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 394, height: 109)
+                .frame(width: 395, height: 109)
                 .overlay(alignment: .bottom) {
                     Text(text)
                         .font(.custom(CustomFont.black, size: fontSize))
@@ -23,6 +23,7 @@ struct Header: View {
                         .foregroundStyle(.white)
                         .padding(.bottom)
                 }
+            
             HStack {
                 Spacer()
                 
@@ -37,6 +38,7 @@ struct Header: View {
             }
             .padding()
         }
+        .frame(width: 395, height: 109)
     }
 }
 

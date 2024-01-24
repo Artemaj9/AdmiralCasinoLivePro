@@ -18,7 +18,6 @@ struct Menu: View {
                             }
                         }
                     }
-                
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
@@ -77,7 +76,6 @@ struct Menu: View {
                                 .padding(.trailing)
                         }
 
-                   
                         NavigationLink {
                             Strategies()
                         } label: {

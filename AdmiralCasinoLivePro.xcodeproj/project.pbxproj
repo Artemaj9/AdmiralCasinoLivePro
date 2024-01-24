@@ -19,7 +19,7 @@
 		ACA40DC82B607009001C6851 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACA40DC72B607009001C6851 /* Inter-Black.ttf */; };
 		ACA40DCA2B607031001C6851 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACA40DC92B607031001C6851 /* Inter-Regular.ttf */; };
 		ACA40DCC2B60704C001C6851 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACA40DCB2B60704C001C6851 /* Inter-SemiBold.ttf */; };
-		ACA40DCF2B607FB3001C6851 /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA40DCE2B607FB3001C6851 /* Font+Ext.swift */; };
+		ACA40DCF2B607FB3001C6851 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA40DCE2B607FB3001C6851 /* Fonts.swift */; };
 		ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA40DD02B60FBDD001C6851 /* Colors.swift */; };
 		ACA40DD32B613133001C6851 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA40DD22B613133001C6851 /* Text.swift */; };
 		ACD5FAF42B61362D00FF6846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD5FAF32B61362D00FF6846 /* Assets.xcassets */; };
@@ -32,6 +32,9 @@
 		ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */; };
 		ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB042B615D3B00FF6846 /* Gameplay.swift */; };
 		ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB062B618AB900FF6846 /* ArticleModel.swift */; };
+		ACD5FB092B619F9500FF6846 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB082B619F9500FF6846 /* HistoryCell.swift */; };
+		ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */; };
+		ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,7 @@
 		ACA40DC92B607031001C6851 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		ACA40DCB2B60704C001C6851 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		ACA40DCD2B607290001C6851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		ACA40DCE2B607FB3001C6851 /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
+		ACA40DCE2B607FB3001C6851 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		ACA40DD02B60FBDD001C6851 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACA40DD22B613133001C6851 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		ACD5FAF32B61362D00FF6846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AdmiralCasinoLivePro/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -62,6 +65,9 @@
 		ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDescription.swift; sourceTree = "<group>"; };
 		ACD5FB042B615D3B00FF6846 /* Gameplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		ACD5FB062B618AB900FF6846 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		ACD5FB082B619F9500FF6846 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 				ACA40DB92B606BAC001C6851 /* Screens */,
 				ACA40DBA2B606BB9001C6851 /* Components */,
 				ACD5FAF92B6145E600FF6846 /* Models */,
+				ACD5FB0B2B61A17B00FF6846 /* UserDefaults */,
 				ACA40DC02B606F5A001C6851 /* Fonts */,
 				ACA40DBD2B606BF8001C6851 /* Resources */,
 				ACA40DAF2B606650001C6851 /* Preview Content */,
@@ -132,7 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				ACA40DBB2B606BE3001C6851 /* Background.swift */,
+				ACD5FB082B619F9500FF6846 /* HistoryCell.swift */,
 				ACD5FAF72B61377C00FF6846 /* Header.swift */,
+				ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -141,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA40DBE2B606C18001C6851 /* Images.swift */,
-				ACA40DCE2B607FB3001C6851 /* Font+Ext.swift */,
+				ACA40DCE2B607FB3001C6851 /* Fonts.swift */,
 				ACA40DD02B60FBDD001C6851 /* Colors.swift */,
 				ACA40DD22B613133001C6851 /* Text.swift */,
 				ACD5FAF32B61362D00FF6846 /* Assets.xcassets */,
@@ -170,6 +179,14 @@
 				ACD5FB062B618AB900FF6846 /* ArticleModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ACD5FB0B2B61A17B00FF6846 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +276,13 @@
 				ACD5FAFD2B614A9500FF6846 /* Strategies.swift in Sources */,
 				ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */,
 				ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */,
-				ACA40DCF2B607FB3001C6851 /* Font+Ext.swift in Sources */,
+				ACA40DCF2B607FB3001C6851 /* Fonts.swift in Sources */,
+				ACD5FB092B619F9500FF6846 /* HistoryCell.swift in Sources */,
 				ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */,
 				ACA40DBF2B606C18001C6851 /* Images.swift in Sources */,
 				ACA40DBC2B606BE3001C6851 /* Background.swift in Sources */,
+				ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */,
+				ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */,
 				ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */,
 				ACA40DAA2B60664E001C6851 /* AdmiralCasinoLiveProApp.swift in Sources */,
 			);

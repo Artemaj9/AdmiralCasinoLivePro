@@ -8,6 +8,7 @@ struct Info: View {
     
     @Environment(\.dismiss) var dismiss
     @State var screen = 1
+    let size: CGSize = CGSize(width: 395, height: 852)
     
     var body: some View {
         ZStack {
@@ -21,7 +22,6 @@ struct Info: View {
                     .padding(.horizontal)
                 
                 VStack(alignment: .leading) {
-                    // title
                     Text(infoScreens[screen - 1].title)
                         .font(.custom(CustomFont.black, size: 24))
                         .padding(.bottom, 8)
@@ -35,7 +35,6 @@ struct Info: View {
                 if screen != 1 {
                     Spacer()
                 }
-                
                 if screen == 1 {
                     Button {
                         screen += 1
@@ -45,8 +44,6 @@ struct Info: View {
                             .scaledToFit()
                             .padding()
                     }
-
-                 
                 } else {
                     HStack {
                         Button {
@@ -57,10 +54,9 @@ struct Info: View {
                             Image(Img.backbtn)
                                 .resizable()
                                 .scaledToFit()
+                                .frame(width: size.width*0.38)
                         }
-                       // .padding(.vertical)
-                     
-                    
+                        
                         Button {
                             if screen < 5 {
                                 screen += 1
@@ -79,8 +75,9 @@ struct Info: View {
             }
             .ignoresSafeArea()
         }
-        .preferredColorScheme(.dark)
         .navigationBarHidden(true)
+        .preferredColorScheme(.dark)
+       
     }
 }
 

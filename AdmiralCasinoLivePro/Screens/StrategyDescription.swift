@@ -1,8 +1,5 @@
 //
 //  StrategyDescription.swift
-//  AdmiralCasinoLivePro
-//
-//  Created by Artem on 24.01.2024.
 //
 
 import SwiftUI
@@ -33,6 +30,7 @@ struct StrategyDescription: View {
                             .font(.custom(CustomFont.bold, size: 24))
                             .foregroundStyle(.white)
                             .padding(.vertical, 4)
+                        
                         ForEach(0..<articles[article-1].keyAspects.count) { i in
                             HStack(alignment: .top) {
                                 Text("\(i+1).")
@@ -49,16 +47,18 @@ struct StrategyDescription: View {
                             .font(.custom(CustomFont.medium, size: 18))
                             .foregroundStyle(.white)
                     }
-                        
+                    Color.clear
+                        .frame(height: 100)
                     }
-                .padding()
-                //Spacer()
+                    .padding()
             }
             .ignoresSafeArea()
         }
+        .preferredColorScheme(.dark)
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    StrategyDescription(article: 1)
+    StrategyDescription(article: 2)
 }
