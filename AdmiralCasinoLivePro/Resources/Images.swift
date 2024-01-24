@@ -13,6 +13,9 @@ enum Img {
     static let play = "play"
     static let header = "headerbg"
     static let exit = "x"
+    static let nextlong = "nextlongbtn"
+    static let nextbtn = "nextbtn"
+    static let backbtn = "backbtn"
 }
 
 

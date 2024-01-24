@@ -5,10 +5,9 @@
 import SwiftUI
 
 
-//LinearGradient(stops: [
-//    Gradient.Stop(color: .white, location: 0.45),
-//    Gradient.Stop(color: .black, location: 0.55),
-//], startPoint: .top, endPoint: .bottom)
+enum Pallete {
+    static let yellowtxt = "yellowtxt"
+}
 
 
 let historyReflection  = LinearGradient(

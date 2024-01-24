@@ -25,6 +25,11 @@
 		ACD5FAF42B61362D00FF6846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD5FAF32B61362D00FF6846 /* Assets.xcassets */; };
 		ACD5FAF62B61368500FF6846 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAF52B61368500FF6846 /* Info.swift */; };
 		ACD5FAF82B61377C00FF6846 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAF72B61377C00FF6846 /* Header.swift */; };
+		ACD5FAFB2B61460300FF6846 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAFA2B61460300FF6846 /* InfoModel.swift */; };
+		ACD5FAFD2B614A9500FF6846 /* Strategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAFC2B614A9500FF6846 /* Strategies.swift */; };
+		ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */; };
+		ACD5FB012B6151AD00FF6846 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB002B6151AD00FF6846 /* History.swift */; };
+		ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		ACD5FAF32B61362D00FF6846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AdmiralCasinoLivePro/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		ACD5FAF52B61368500FF6846 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		ACD5FAF72B61377C00FF6846 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		ACD5FAFA2B61460300FF6846 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		ACD5FAFC2B614A9500FF6846 /* Strategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategies.swift; sourceTree = "<group>"; };
+		ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyModel.swift; sourceTree = "<group>"; };
+		ACD5FB002B6151AD00FF6846 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 				ACA40DAB2B60664E001C6851 /* ContentView.swift */,
 				ACA40DB92B606BAC001C6851 /* Screens */,
 				ACA40DBA2B606BB9001C6851 /* Components */,
+				ACD5FAF92B6145E600FF6846 /* Models */,
 				ACA40DC02B606F5A001C6851 /* Fonts */,
 				ACA40DBD2B606BF8001C6851 /* Resources */,
 				ACA40DAF2B606650001C6851 /* Preview Content */,
@@ -105,6 +116,9 @@
 			children = (
 				ACA40DB72B606BA8001C6851 /* Menu.swift */,
 				ACD5FAF52B61368500FF6846 /* Info.swift */,
+				ACD5FAFC2B614A9500FF6846 /* Strategies.swift */,
+				ACD5FB002B6151AD00FF6846 /* History.swift */,
+				ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -141,6 +155,15 @@
 				ACA40DC32B606FF6001C6851 /* Inter-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		ACD5FAF92B6145E600FF6846 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACD5FAFA2B61460300FF6846 /* InfoModel.swift */,
+				ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,14 +243,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD5FAF82B61377C00FF6846 /* Header.swift in Sources */,
+				ACD5FAFB2B61460300FF6846 /* InfoModel.swift in Sources */,
+				ACD5FB012B6151AD00FF6846 /* History.swift in Sources */,
 				ACA40DB82B606BA8001C6851 /* Menu.swift in Sources */,
 				ACA40DAC2B60664E001C6851 /* ContentView.swift in Sources */,
 				ACA40DD32B613133001C6851 /* Text.swift in Sources */,
+				ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */,
 				ACD5FAF62B61368500FF6846 /* Info.swift in Sources */,
+				ACD5FAFD2B614A9500FF6846 /* Strategies.swift in Sources */,
 				ACA40DCF2B607FB3001C6851 /* Font+Ext.swift in Sources */,
 				ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */,
 				ACA40DBF2B606C18001C6851 /* Images.swift in Sources */,
 				ACA40DBC2B606BE3001C6851 /* Background.swift in Sources */,
+				ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */,
 				ACA40DAA2B60664E001C6851 /* AdmiralCasinoLiveProApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "yellowbtnbg.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
