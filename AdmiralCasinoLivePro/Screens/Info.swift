@@ -32,6 +32,9 @@ struct Info: View {
                         .foregroundStyle(.white)
                 }
                 .padding()
+                if screen != 1 {
+                    Spacer()
+                }
                 
                 if screen == 1 {
                     Button {
@@ -55,7 +58,7 @@ struct Info: View {
                                 .resizable()
                                 .scaledToFit()
                         }
-                        .padding()
+                       // .padding(.vertical)
                      
                     
                         Button {
@@ -70,6 +73,7 @@ struct Info: View {
                                 .scaledToFit()
                         }
                     }
+                    .padding(.bottom, 16)
                     .padding()
                 }
             }

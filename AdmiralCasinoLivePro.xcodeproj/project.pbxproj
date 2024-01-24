@@ -30,6 +30,8 @@
 		ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */; };
 		ACD5FB012B6151AD00FF6846 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB002B6151AD00FF6846 /* History.swift */; };
 		ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */; };
+		ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB042B615D3B00FF6846 /* Gameplay.swift */; };
+		ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB062B618AB900FF6846 /* ArticleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyModel.swift; sourceTree = "<group>"; };
 		ACD5FB002B6151AD00FF6846 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDescription.swift; sourceTree = "<group>"; };
+		ACD5FB042B615D3B00FF6846 /* Gameplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
+		ACD5FB062B618AB900FF6846 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				ACD5FAFC2B614A9500FF6846 /* Strategies.swift */,
 				ACD5FB002B6151AD00FF6846 /* History.swift */,
 				ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */,
+				ACD5FB042B615D3B00FF6846 /* Gameplay.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			children = (
 				ACD5FAFA2B61460300FF6846 /* InfoModel.swift */,
 				ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */,
+				ACD5FB062B618AB900FF6846 /* ArticleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 				ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */,
 				ACD5FAF62B61368500FF6846 /* Info.swift in Sources */,
 				ACD5FAFD2B614A9500FF6846 /* Strategies.swift in Sources */,
+				ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */,
+				ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */,
 				ACA40DCF2B607FB3001C6851 /* Font+Ext.swift in Sources */,
 				ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */,
 				ACA40DBF2B606C18001C6851 /* Images.swift in Sources */,

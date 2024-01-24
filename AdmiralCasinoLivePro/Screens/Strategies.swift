@@ -13,19 +13,23 @@ struct Strategies: View {
             VStack {
                 Header(text: "STRATEGIES")
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     ForEach(0..<3) { index in
                         HStack {
                             Image("person\(2 * index + 1)")
                                 .resizable()
                                 .scaledToFit()
+                            Color.clear
+                                .frame(width: 1)
                             Image("person\(2*index + 2)")
                                 .resizable()
                                 .scaledToFit()
                         }
+                        .padding(.bottom, 6)
                     }
                 }
-                .padding(8)
+                .padding(16)
+                
             }
             .ignoresSafeArea()
         }

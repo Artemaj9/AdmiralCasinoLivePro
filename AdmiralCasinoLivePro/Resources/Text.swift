@@ -29,7 +29,7 @@ enum InfoTxt {
     
 }
 
-enum Articles {
+enum StrategyDescr {
     static let article1 = """
 
     The Martingale strategy stands as a formidable force in the realm of casino tactics, and when adapted to Baccarat, it unveils a world of potential wins. Rooted in the fundamental principle of doubling your bet after each loss, the Baccarat Martingale Strategy is a game-changer. Let's delve into the intricacies of this renowned approach, enhancing it for maximum effectiveness.

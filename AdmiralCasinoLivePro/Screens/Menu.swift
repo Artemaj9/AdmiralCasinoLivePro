@@ -25,7 +25,7 @@ struct Menu: View {
                             Text("Hello!")
                                 .font(.custom(CustomFont.extraBold, size: 33))
                             
-                            Text("Ready For New Startegies?")
+                            Text("Ready For New Strategies?")
                                 .font(.custom(CustomFont.extraBold, size: 18))
                         }
                         .foregroundStyle(.white)
