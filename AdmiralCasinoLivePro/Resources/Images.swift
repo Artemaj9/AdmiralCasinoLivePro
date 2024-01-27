@@ -38,5 +38,8 @@ enum GameImg {
     static let burger = "burger"
     static let income = "gameincome"
     static let outcome = "gameoutcome"
+    static let rect = "gamerect"
+    static let gradgreen = "gradgreen"
+    static let coin = "coin"
 }
 

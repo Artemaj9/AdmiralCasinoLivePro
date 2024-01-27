@@ -6,6 +6,7 @@ import SwiftUI
 
 struct Menu: View {
     @State var size: CGSize = .zero
+    @EnvironmentObject var gm: GameLogic
     
     var body: some View {
         NavigationView {
@@ -50,6 +51,7 @@ struct Menu: View {
                         .overlay(alignment: .bottom) {
                             NavigationLink {
                                 Gameplay()
+                                    .environmentObject(gm)
                             } label: {
                                 Image(Img.play)
                                     .resizable()
@@ -115,4 +117,5 @@ struct Menu: View {
 
 #Preview {
     Menu()
+        .environmentObject(GameLogic())
 }
