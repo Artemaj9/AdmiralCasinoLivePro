@@ -12,6 +12,10 @@ enum Pallete {
     static let income = Color("incomegreen")
     static let outcome = Color("outcomered")
     static let yellowstat = Color("statyellow")
+    static let lightgreen = Color("lightgreen")
+    static let lightblue = Color("lightblue")
+    static let lightpink = Color("lightpink")
+    static let balanceyellow = Color("balancecolor")
 }
 
 let historyReflection  = LinearGradient(

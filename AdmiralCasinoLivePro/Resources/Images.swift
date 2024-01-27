@@ -24,4 +24,19 @@ enum Img {
     static let statbg = "historybg"
 }
 
+enum GameImg {
+    static let playerslot = "playerslot"
+    static let pushslot = "pushslot"
+    static let bankerslot = "bankerslot"
+    static let tablebg = "bgtable"
+    static let betbg = "betbg"
+    static let plus = "plus"
+    static let minus = "minus"
+    static let strategyBar = "strategybar"
+    static let headerbg = "gameplayheaderbg"
+    static let balance = "balance"
+    static let burger = "burger"
+    static let income = "gameincome"
+    static let outcome = "gameoutcome"
+}
 

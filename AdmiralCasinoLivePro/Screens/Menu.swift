@@ -48,11 +48,16 @@ struct Menu: View {
                         .scaledToFit()
                         .padding(.horizontal)
                         .overlay(alignment: .bottom) {
-                            Image(Img.play)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 72, height: 72)
-                                .offset(y: 16)
+                            NavigationLink {
+                                Gameplay()
+                            } label: {
+                                Image(Img.play)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 72, height: 72)
+                                    .offset(y: 16)
+                            }
+                         
                         }
                     
                     HStack {
