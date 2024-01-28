@@ -47,7 +47,7 @@ class GameLogic: ObservableObject {
     @Published var whoWin = -2
     // 0 - pusg 1 - player -1 banker
     @Published var gameOver = false
-    
+    @Published var showDescription = false
   
     @Published var cardTimerCount = 0
     var size: CGSize = CGSize(width: 430, height: 932)
@@ -60,7 +60,8 @@ class GameLogic: ObservableObject {
     
     
     func resetToInitial () {
-        isInitial = true
+        isSelection = true
+        isInitial = false
         isChoose = false
         isGame = false
         isPaused = false
@@ -116,7 +117,7 @@ class GameLogic: ObservableObject {
             .autoconnect()
             .sink { [unowned self] _ in
                 
-                if !isPaused {
+                if !isPaused && !showDescription {
                     count += 1
                 }
             }

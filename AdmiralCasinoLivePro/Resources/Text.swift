@@ -154,3 +154,12 @@ This system bases its strategy on placing 5 chips of equal value split across 2 
     This strategy can be altered to alter between Player and Banker at different intervals of rounds or mix and match with Banker/Player and Banker Pair/Player Pair.
 """
 ]
+
+let strategyTitle = [
+    "The Baccarat Martingale",
+    "Baccarat Fibonacci",
+    "The James Bond",
+    "Side with the Banker",
+    "Focus on Pair Bets",
+    "The 3 2 System"
+]

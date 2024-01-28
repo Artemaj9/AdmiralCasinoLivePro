@@ -166,12 +166,16 @@ struct Gameplay: View {
                     .scaledToFit()
                     .overlay {
                         HStack {
-                            Text("STRATEGY NAME")
-                            Image(Img.info)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 35, height: 35)
-                                .padding(.trailing)
+                            Text(strategyTitle[gm.strategy-1])
+                            Button {
+                                gm.showDescription = true
+                            } label: {
+                                    Image(Img.info)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 35, height: 35)
+                                        .padding(.trailing)
+                            }
                         }
                         .offset(x: 30)
                     }
@@ -310,7 +314,7 @@ struct Gameplay: View {
                                 }
                                 Button {
                                     
-                                    gm.gameStats.append(GameStats(strategy: 5, income: gm.income, outcome: gm.outcome, time: gm.count, bankerWins: gm.bankerWinsCount, pushCount: gm.pushCount, playerWins: gm.playerWinsCount))
+                                    gm.gameStats.append(GameStats(strategy: gm.strategy, income: gm.income, outcome: gm.outcome, time: gm.count, bankerWins: gm.bankerWinsCount, pushCount: gm.pushCount, playerWins: gm.playerWinsCount))
                                     UserDefaultService.shared.saveStructs(structs: gm.gameStats, forKey: "gameStats")
                                     gm.resetToInitial()
                                     dismiss()
@@ -332,6 +336,12 @@ struct Gameplay: View {
             }
             if gm.isSelection {
                 Selection()
+                    .environmentObject(gm)
+            }
+            
+            
+            if gm.showDescription {
+                ShortDescription(article: gm.strategy, isFromGame: true)
                     .environmentObject(gm)
             }
         }

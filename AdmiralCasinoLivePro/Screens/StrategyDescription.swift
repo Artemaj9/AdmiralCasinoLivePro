@@ -5,6 +5,7 @@
 import SwiftUI
 
 struct StrategyDescription: View {
+    @EnvironmentObject var gm: GameLogic
     
     let article: Int
     var body: some View {
@@ -61,4 +62,5 @@ struct StrategyDescription: View {
 
 #Preview {
     StrategyDescription(article: 2)
+        .environmentObject(GameLogic())
 }

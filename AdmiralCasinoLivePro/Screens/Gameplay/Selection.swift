@@ -25,6 +25,9 @@ struct Selection: View {
                                     .resizable()
                                     .scaledToFit()
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                gm.strategy = 2*index + 1
+                            })
                             Color.clear
                                 .frame(width: 1)
                             NavigationLink {
@@ -35,6 +38,9 @@ struct Selection: View {
                                     .resizable()
                                     .scaledToFit()
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                gm.strategy = 2*index + 2
+                            })
                         }
                         .padding(.bottom, 6)
                     }
