@@ -36,6 +36,13 @@
 		ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */; };
 		ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */; };
 		ACD5FB8E2B6587E100FF6846 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */; };
+		ACD5FB912B65A04600FF6846 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB902B65A04600FF6846 /* Picture.swift */; };
+		ACD5FB932B65A09200FF6846 /* Cardback.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB922B65A09200FF6846 /* Cardback.swift */; };
+		ACD5FB952B65A0E600FF6846 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB942B65A0E600FF6846 /* Card.swift */; };
+		ACD5FB972B65A6A500FF6846 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB962B65A6A500FF6846 /* CardModel.swift */; };
+		ACD5FB992B65D3C800FF6846 /* GameStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */; };
+		ACD5FB9B2B665D6700FF6846 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB9A2B665D6700FF6846 /* Selection.swift */; };
+		ACD5FB9E2B665FE100FF6846 /* ShortDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB9D2B665FE100FF6846 /* ShortDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +77,13 @@
 		ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayHeader.swift; sourceTree = "<group>"; };
 		ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		ACD5FB902B65A04600FF6846 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		ACD5FB922B65A09200FF6846 /* Cardback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardback.swift; sourceTree = "<group>"; };
+		ACD5FB942B65A0E600FF6846 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		ACD5FB962B65A6A500FF6846 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsModel.swift; sourceTree = "<group>"; };
+		ACD5FB9A2B665D6700FF6846 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		ACD5FB9D2B665FE100FF6846 /* ShortDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +147,7 @@
 				ACD5FAFC2B614A9500FF6846 /* Strategies.swift */,
 				ACD5FB002B6151AD00FF6846 /* History.swift */,
 				ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */,
-				ACD5FB042B615D3B00FF6846 /* Gameplay.swift */,
+				ACD5FB9C2B665F7F00FF6846 /* Gameplay */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -142,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA40DBB2B606BE3001C6851 /* Background.swift */,
+				ACD5FB8F2B65A02C00FF6846 /* CardsAnimation */,
 				ACD5FB082B619F9500FF6846 /* HistoryCell.swift */,
 				ACD5FAF72B61377C00FF6846 /* Header.swift */,
 				ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */,
@@ -178,8 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				ACD5FAFA2B61460300FF6846 /* InfoModel.swift */,
+				ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */,
 				ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */,
 				ACD5FB062B618AB900FF6846 /* ArticleModel.swift */,
+				ACD5FB962B65A6A500FF6846 /* CardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +207,26 @@
 				ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		ACD5FB8F2B65A02C00FF6846 /* CardsAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				ACD5FB902B65A04600FF6846 /* Picture.swift */,
+				ACD5FB922B65A09200FF6846 /* Cardback.swift */,
+				ACD5FB942B65A0E600FF6846 /* Card.swift */,
+			);
+			path = CardsAnimation;
+			sourceTree = "<group>";
+		};
+		ACD5FB9C2B665F7F00FF6846 /* Gameplay */ = {
+			isa = PBXGroup;
+			children = (
+				ACD5FB9A2B665D6700FF6846 /* Selection.swift */,
+				ACD5FB9D2B665FE100FF6846 /* ShortDescription.swift */,
+				ACD5FB042B615D3B00FF6846 /* Gameplay.swift */,
+			);
+			path = Gameplay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,23 +307,30 @@
 			files = (
 				ACD5FAF82B61377C00FF6846 /* Header.swift in Sources */,
 				ACD5FAFB2B61460300FF6846 /* InfoModel.swift in Sources */,
+				ACD5FB992B65D3C800FF6846 /* GameStatsModel.swift in Sources */,
 				ACD5FB012B6151AD00FF6846 /* History.swift in Sources */,
 				ACA40DB82B606BA8001C6851 /* Menu.swift in Sources */,
+				ACD5FB972B65A6A500FF6846 /* CardModel.swift in Sources */,
 				ACA40DAC2B60664E001C6851 /* ContentView.swift in Sources */,
 				ACA40DD32B613133001C6851 /* Text.swift in Sources */,
 				ACD5FB8E2B6587E100FF6846 /* GameLogic.swift in Sources */,
+				ACD5FB952B65A0E600FF6846 /* Card.swift in Sources */,
 				ACD5FB032B61560D00FF6846 /* StrategyDescription.swift in Sources */,
 				ACD5FAF62B61368500FF6846 /* Info.swift in Sources */,
 				ACD5FAFD2B614A9500FF6846 /* Strategies.swift in Sources */,
+				ACD5FB9E2B665FE100FF6846 /* ShortDescription.swift in Sources */,
 				ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */,
 				ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */,
 				ACA40DCF2B607FB3001C6851 /* Fonts.swift in Sources */,
 				ACD5FB092B619F9500FF6846 /* HistoryCell.swift in Sources */,
+				ACD5FB912B65A04600FF6846 /* Picture.swift in Sources */,
 				ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */,
 				ACA40DBF2B606C18001C6851 /* Images.swift in Sources */,
 				ACA40DBC2B606BE3001C6851 /* Background.swift in Sources */,
+				ACD5FB932B65A09200FF6846 /* Cardback.swift in Sources */,
 				ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */,
 				ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */,
+				ACD5FB9B2B665D6700FF6846 /* Selection.swift in Sources */,
 				ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */,
 				ACA40DAA2B60664E001C6851 /* AdmiralCasinoLiveProApp.swift in Sources */,
 			);

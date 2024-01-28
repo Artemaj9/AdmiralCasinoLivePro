@@ -41,5 +41,13 @@ enum GameImg {
     static let rect = "gamerect"
     static let gradgreen = "gradgreen"
     static let coin = "coin"
+    static let bankerwin = "bankerwinalert"
+    static let push = "pushalert"
+    static let playerwin = "playerwin"
+    static let returnbtn = "returnbtn"
+    static let tomenu = "tomenubtn"
+    static let pausebg = "pausebg"
+    static let more = "showmorebtn"
+    static let play = "longplaybtn"
 }
 

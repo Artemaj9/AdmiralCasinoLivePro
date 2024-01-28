@@ -75,6 +75,7 @@ struct Menu: View {
                     HStack {
                         NavigationLink {
                             History()
+                                .environmentObject(gm)
                         } label: {
                             Image(Img.history)
                                 .resizable()
@@ -109,6 +110,9 @@ struct Menu: View {
                 }
             }
             .preferredColorScheme(.dark)
+            .onAppear {
+                gm.gameStats = UserDefaultService.shared.getStructs(forKey: "gameStats") ?? []
+            }
         }
         .navigationViewStyle(.stack)
         .navigationBarHidden(true)

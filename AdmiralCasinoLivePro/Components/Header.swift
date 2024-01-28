@@ -22,6 +22,7 @@ struct Header: View {
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.white)
                         .padding(.bottom)
+                        .offset(y: 4)
                 }
             
             HStack {

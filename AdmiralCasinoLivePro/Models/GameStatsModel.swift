@@ -5,7 +5,7 @@
 import Foundation
 
 struct GameStats: Codable {
-    let strategy: String
+    let strategy: Int
     let income: Int
     let outcome: Int
     let time: Int

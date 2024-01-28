@@ -116,3 +116,41 @@ Conclusion:
 As you embark on your Baccarat journey, let the 3 2 System be your guide, orchestrating a symphony of strategic bets across the table. With its symmetrical elegance, adaptive adjustments, and freedom of choice, this system transforms each round into a captivating dance of chips, where precision meets innovation. Explore the strategic ballet of Baccarat with the 3 2 System – a dynamic and flexible approach designed to captivate and challenge players in the ever-evolving landscape of the casino floor.
 """
 }
+
+let shortDescription = [
+    "The Martingale is one of the most popular casino strategies worldwide and follows one all-important rule; every time you lose a round you double your bet value. The idea behind this strategy is that, when you win, it will offset the value of the lost rounds. Set yourself a betting style and stick to it religiously to follow this strategy. Upgrade the strategy by applying flexible min and max bet limits and keep within those limits to keep it manageable.",
+    
+    """
+Originally a strategy employed for Roulette, the Fibonacci can be modified to work with Baccarat. The strategy primarily focuses on Banker bets and follows a sequence of betting values on each round. Set yourself a minimum bet value and, whenever you win, move one step one the sequence. If you lose a round, return to the first step of the sequence and start again. The sequence to follow is:
+
+    1 – 1 – 2 – 3 – 5 – 8 – 13 – 21 – 34 – 55 – 89 – 144 – 233 – 377 – 610 – 987
+
+    As an example:
+
+    You set a limit of £1 as your minimum bet
+    The sequence would go £1-£1-£2-£3-£5-£8 etc.
+    If you lose, start again with a £1 bet and repeat the sequence until the next losing hand
+""",
+
+"""
+    It’s the secret agent’s favourite game and it would only be appropriate for there to be a strategy centered around the man who enjoys his martini shaken. You play each round at £200 and split it across 3 bets of:
+    
+    £140 on a number Banker
+    £50 on a number Player
+    The other £10 on Tie
+
+    The James Bond strategy can be heavily modified so the values can be higher or lower depending on your budget. Set yourself a strict limit and don’t spend more than you would be comfortable with; as long as the values can be split similar to the above format.
+""",
+    
+    "Statistically, the Banker has a slightly higher chance of winning on any given round and awards a payout of 0.95:1 as opposed to the Player which awards 1:1. This strategy is pretty simple; bet on the Banker on every round. Despite the slight advantage over the Player space, there is no guarantee the Banker will win so stick to it for multiple rounds to maximise this strategy.",
+    
+    "The Pair bets have the highest potential return on your initial bet with a payout of 11:1. This strategy focuses on making bets exclusively on Player Pair or Banker Pair bets to win. For every win, you will win 11x your bet value with each win offsetting the potential losses from non-winning rounds. Stick to one type of bet or alternate between them to spice up the action.",
+    
+    """
+This system bases its strategy on placing 5 chips of equal value split across 2 different bets. For Baccarat, the split is between either the Banker and Banker Pair bets or the Player and Player Pair bets. Once decided, follow this sequence:
+    Place 3 chips on Banker/Player
+    Place the remaining 2 chips on Banker Pair/Player Pair
+    Repeat after each round and adjust chip values according to your budget
+    This strategy can be altered to alter between Player and Banker at different intervals of rounds or mix and match with Banker/Player and Banker Pair/Player Pair.
+"""
+]

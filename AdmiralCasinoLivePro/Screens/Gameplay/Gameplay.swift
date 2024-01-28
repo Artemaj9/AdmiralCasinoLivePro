@@ -7,7 +7,7 @@ import SwiftUI
 struct Gameplay: View {
     let size: CGSize = CGSize(width: 430, height: 932)
     @EnvironmentObject var gm: GameLogic
-    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -149,11 +149,15 @@ struct Gameplay: View {
                                     .frame(height: 40)
                             }
                         }
-                        Image(GameImg.burger)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .padding(.trailing, 8)
+                        Button {
+                            gm.isPaused = true
+                        } label: {
+                            Image(GameImg.burger)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .padding(.trailing, 8)
+                        }
                     }
                    .offset(y: 8)
             
@@ -182,6 +186,11 @@ struct Gameplay: View {
                     gm.side = 0
                     gm.isChoose = false
                     gm.isGame = true
+                    gm.setUpCardTimer()
+                    if gm.count == 0 {
+                        gm.setupTimer()
+                    }
+                
                 } label: {
                     Image(GameImg.rect)
                         .resizable()
@@ -189,10 +198,17 @@ struct Gameplay: View {
                         .frame(width: size.width * 0.7)
                         .shadow(color: .white, radius: gm.isChoose || gm.side == 0 ? 4 : 0)
                         .overlay(alignment: .top) {
-                            Text("BANKER")
-                                .font(.custom(CustomFont.extraBold, size: 28))
-                                .foregroundStyle(.white.opacity(gm.isInitial ? 0.5 : 1))
-                                .padding(.top)
+                            VStack {
+                                Text("BANKER")
+                                    .font(.custom(CustomFont.extraBold, size: 28))
+                                    .foregroundStyle(.white.opacity(gm.isInitial ? 0.5 : 1))
+                                    .padding(.top)
+                                HStack {
+                                    ForEach(gm.bankerCards) { card in
+                                            Card(isFlipped: false, needToRotate: true, image: card.image, width: 75, height: 100)
+                                    }
+                                }
+                            }
                         }
                 }
                 .allowsHitTesting(gm.isChoose)
@@ -203,17 +219,29 @@ struct Gameplay: View {
                     gm.side = 1
                     gm.isChoose = false
                     gm.isGame = true
+                    gm.setUpCardTimer()
+                    
                 } label: {
                     Image(GameImg.rect)
                         .resizable()
                         .scaledToFit()
                         .frame(width: size.width * 0.7)
-                        .shadow(color: .white, radius: gm.isChoose ? 4 : 0)
+                        .shadow(color: .white, radius: gm.isChoose || gm.side == 1  ? 4 : 0)
                         .overlay(alignment: .bottom) {
-                            Text("PLAYER")
-                                .font(.custom(CustomFont.extraBold, size: 28))
-                                .foregroundStyle(.white.opacity(gm.isInitial || gm.side == 1 ? 0.5 : 1))
-                                .padding(.bottom)
+                            VStack {
+                                
+                                HStack {
+                                    ForEach(gm.playerCards) { card in
+                                        Card(isFlipped: false, needToRotate: true, image: card.image, width: 75, height: 100)
+                                    }
+                                }
+                                
+                                Text("PLAYER")
+                                    .font(.custom(CustomFont.extraBold, size: 28))
+                                    .foregroundStyle(.white.opacity(gm.isInitial ? 0.5 : 1))
+                                    .padding(.bottom)
+                          
+                            }
                         }
                         .padding(4)
                 }
@@ -232,12 +260,92 @@ struct Gameplay: View {
                     }
                     
                 }
+                
+                if gm.gameOver {
+                    if gm.whoWin == -1 {
+                        Image(GameImg.bankerwin)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                    }
+                    
+                    if gm.whoWin == 0 {
+                        Image(GameImg.push)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                    }
+                    
+                    if gm.whoWin == 1 {
+                        Image(GameImg.playerwin)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                        
+                    }
+                }
+                  
             }
             .offset(y: -size.height*0.04)
+            
+            if gm.isPaused {
+                ZStack {
+                    Color.black.opacity(0.2)
+                    
+                    Image(GameImg.pausebg)
+                        .resizable()
+                        .scaledToFit()
+                        .overlay(alignment: .top) {
+                            VStack(spacing: 12) {
+                                Text("Pause")
+                                    .font(.custom(CustomFont.black, size: 45))
+                                Button {
+                                    gm.isPaused = false
+                                } label: {
+                                    Image(GameImg.returnbtn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: size.width * 0.6)
+                                        .padding(.bottom, 16)
+                                }
+                                Button {
+                                    
+                                    gm.gameStats.append(GameStats(strategy: 5, income: gm.income, outcome: gm.outcome, time: gm.count, bankerWins: gm.bankerWinsCount, pushCount: gm.pushCount, playerWins: gm.playerWinsCount))
+                                    UserDefaultService.shared.saveStructs(structs: gm.gameStats, forKey: "gameStats")
+                                    gm.resetToInitial()
+                                    dismiss()
+                                    
+                                    
+                                } label: {
+                                    Image(GameImg.tomenu)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: size.width * 0.4)
+                                }
+                            }
+                        }
+                    
+                    
+                    
+                    
+                }
+            }
+            if gm.isSelection {
+                Selection()
+                    .environmentObject(gm)
+            }
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)
         .preferredColorScheme(.dark)
+        .onAppear {
+            gm.addCards()
+        }
+        .onTapGesture {
+            if gm.gameOver {
+                gm.finalizeRound()
+            }
+        }
     }
 }
 

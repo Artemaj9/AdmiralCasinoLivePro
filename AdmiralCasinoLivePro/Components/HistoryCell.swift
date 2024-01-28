@@ -5,12 +5,19 @@
 import SwiftUI
 
 struct HistoryCell: View {
+    let image: Int
+    let number: Int
+    let playerWinsCount: Int
+    let bankerWinsCount: Int
+    let pushCount: Int
+    let income: Int
+    let outcome: Int
     
     var body: some View {
         ZStack {
-            Background()
+          //  Background()
             HStack(spacing: 0) {
-                Image("person3")
+                Image("person\(image)")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 182)
@@ -23,7 +30,7 @@ struct HistoryCell: View {
                     
                     VStack {
                         HStack {
-                            Text("SESSION 1")
+                            Text("SESSION \(number)")
                                 .font(.custom(CustomFont.semiBold, size: 18))
                                 .foregroundStyle(.white)
                                 .shadow(color: Color("sessionShadow"), radius: 2, y: 2)
@@ -40,7 +47,7 @@ struct HistoryCell: View {
                                 .scaledToFit()
                                 .frame(width: 66, height: 78)
                                 .overlay(alignment: .bottom) {
-                                    Text("411")
+                                    Text("\(playerWinsCount)")
                                         .font(.custom(CustomFont.semiBold, size: 15))
                                         .foregroundStyle(Pallete.yellowstat)
                                         .offset(y: -8)
@@ -51,7 +58,7 @@ struct HistoryCell: View {
                                 .scaledToFit()
                                 .frame(width: 66, height: 78)
                                 .overlay(alignment: .bottom) {
-                                    Text("411")
+                                    Text("\(bankerWinsCount)")
                                         .font(.custom(CustomFont.semiBold, size: 15))
                                         .foregroundStyle(Pallete.yellowstat)
                                         .offset(y: -8)
@@ -61,7 +68,7 @@ struct HistoryCell: View {
                                 .scaledToFit()
                                 .frame(width: 66, height: 78)
                                 .overlay(alignment: .bottom) {
-                                    Text("411")
+                                    Text("\(pushCount)")
                                         .font(.custom(CustomFont.semiBold, size: 15))
                                         .foregroundStyle(Pallete.yellowstat)
                                         .offset(y: -8)
@@ -74,7 +81,7 @@ struct HistoryCell: View {
                                 .scaledToFill()
                                 .frame(width: 98, height: 30)
                                 .overlay(alignment: .top) {
-                                    Text("+5,000")
+                                    Text("\(income)")
                                         .font(.custom(CustomFont.regular, size: 14))
                                         .foregroundStyle(Pallete.income)
                                         .offset(x: 12)
@@ -84,7 +91,7 @@ struct HistoryCell: View {
                                 .scaledToFill()
                                 .frame(width: 98, height: 30)
                                 .overlay(alignment: .top) {
-                                    Text("-5,000")
+                                    Text("-\(outcome)")
                                         .font(.custom(CustomFont.regular, size: 14))
                                         .foregroundStyle(Pallete.outcome)
                                         .offset(x: 12)
@@ -103,5 +110,5 @@ struct HistoryCell: View {
 }
 
 #Preview {
-    HistoryCell()
+    HistoryCell(image: 3, number: 1, playerWinsCount: 5, bankerWinsCount: 4, pushCount: 7, income: 700, outcome: 200)
 }

@@ -6,10 +6,37 @@ import SwiftUI
 
 struct History: View {    
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var gm: GameLogic
     
     var body: some View {
         ZStack {
             Background()
+      
+       
+            if gm.gameStats.isEmpty {
+                VStack(spacing: 8) {
+                    Text("There is No Games")
+                        .font(.custom(CustomFont.black, size: 32))
+                        .foregroundStyle(.white)
+                    
+                    Text("Play baccarat and get session history!")
+                    
+                        .font(.custom(CustomFont.black, size: 18))
+                        .foregroundStyle(.white.opacity(0.5))
+                        .padding(.horizontal,40)
+                        .multilineTextAlignment(.center)
+                    
+                }
+            } else {
+                ScrollView {
+                    Color.clear
+                        .frame(height: 100)
+                    ForEach (gm.gameStats.indices) { index in
+                        let game = gm.gameStats[index]
+                        HistoryCell(image: game.strategy, number: index + 1, playerWinsCount: game.playerWins, bankerWinsCount: game.bankerWins, pushCount: game.pushCount, income: game.income, outcome: game.outcome)
+                    }
+                }
+            }
             VStack {
                 Header(text: "SESSIONS \n HISTORY", fontSize: 20)
                     .offset(y: 4)
@@ -17,20 +44,6 @@ struct History: View {
                 Spacer()
             }
             .ignoresSafeArea()
-            
-            VStack(spacing: 8) {
-                Text("There is No Games")
-                    .font(.custom(CustomFont.black, size: 32))
-                    .foregroundStyle(.white)
-                
-                Text("Play baccarat and get session history!")
-                  
-                    .font(.custom(CustomFont.black, size: 18))
-                    .foregroundStyle(.white.opacity(0.5))
-                    .padding(.horizontal,40)
-                    .multilineTextAlignment(.center)
-                
-            }
         }
         .navigationBarHidden(true)
     }
@@ -38,4 +51,5 @@ struct History: View {
 
 #Preview {
     History()
+        .environmentObject(GameLogic())
 }
