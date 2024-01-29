@@ -12,7 +12,9 @@ struct Selection: View {
         ZStack {
             Background()
             VStack {
-                Header(text: "CHOOSE YOUR\nSTRATEGY", fontSize: 21)
+                Header(text: "CHOOSE YOUR\nSTRATEGY", fontSize: 21, size: gm.size)
+                    .offset(y: gm.size.width < 380 ? 30 : 4
+                    )
                 
                 ScrollView(showsIndicators: false) {
                     ForEach(0..<3) { index in
@@ -27,6 +29,10 @@ struct Selection: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded{
                                 gm.strategy = 2*index + 1
+                                if gm.strategy == 5 {
+                                    gm.focusOnPair = true
+                                    print("Focus on pair")
+                                }
                             })
                             Color.clear
                                 .frame(width: 1)

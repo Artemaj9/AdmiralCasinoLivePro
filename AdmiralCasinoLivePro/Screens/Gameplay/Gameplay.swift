@@ -3,11 +3,20 @@
 //
 
 import SwiftUI
+import Combine
 
 struct Gameplay: View {
-    let size: CGSize = CGSize(width: 430, height: 932)
+   
     @EnvironmentObject var gm: GameLogic
     @Environment(\.dismiss) var dismiss
+    @State var bet: String = ""
+    @State private var keyboardHeight: CGFloat = 0
+
+    
+    init() {
+           UITextField.appearance().keyboardAppearance = .light
+      }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -15,7 +24,7 @@ struct Gameplay: View {
                     .resizable()
                     .scaledToFit()
                     .scaleEffect(x: 1.13)
-                    .offset(y: 20)
+                    .offset(y: gm.size.width < 380 ? 40 : 20)
                 
                 ZStack {
                     Image(GameImg.betbg)
@@ -23,15 +32,27 @@ struct Gameplay: View {
                         .scaledToFit()
                         .overlay {
                             HStack {
-                                Text(gm.bet == 0 ? "PLACE YOUR BET" : "\(gm.bet)" )
-                                    .font(.custom(CustomFont.extraBold, size: 18))
-                                    .shadow(radius: 2, y: 2)
-                                if gm.bet > 0 {
-                                    Image(GameImg.coin)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 35)
-                                        .offset(y: 4)
+                               // DelusionTF(text: $gm.bet)
+                               
+                                if gm.bet == 0 && bet.isEmpty {
+                                    Text(gm.bet == 0 ? "PLACE YOUR BET" : "\(gm.bet)" )
+                                        .font(.custom(CustomFont.extraBold, size: 18))
+                                        .shadow(radius: 2, y: 2)
+//                                        .onTapGesture {
+//                                            bet = String(gm.bet)
+//                                        }
+                                }
+                                if gm.bet > 0 || !bet.isEmpty {
+                                    DelusionTF(text: $bet)
+                                        .environmentObject(gm)
+                                        .allowsHitTesting(gm.isInitial || gm.isChoose)
+                                        .offset(x: gm.size.width*0.02)
+                                       
+//                                    Image(GameImg.coin)
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 35)
+//                                        .offset(y: 4)
                                 }
                             }
                             .offset(x: gm.bet > 0 ? 12 : 0)
@@ -46,6 +67,18 @@ struct Gameplay: View {
                                 if gm.isChoose && gm.bet > 500 {
                                     gm.bet -= 500
                                     gm.balance += 500
+                                } else if gm.isChoose && gm.bet <= 500 && gm.bet > 100 {
+                                    gm.bet -= 100
+                                    gm.balance += 100
+                                } else if gm.isChoose && gm.bet <= 100 && gm.bet > 10 {
+                                    gm.bet -= 10
+                                    gm.balance += 10
+                                } else if gm.isChoose && gm.bet <= 10 && gm.bet > 1 {
+                                    gm.bet -= 1
+                                    gm.balance += 1
+                                }
+                                if gm.bet > 0 {
+                                    bet = String(gm.bet)
                                 }
                             }
                         
@@ -56,21 +89,54 @@ struct Gameplay: View {
                             .scaledToFit()
                             .frame(width: 56, height: 48)
                             .onTapGesture {
-                                if gm.isInitial {
+                                if gm.isInitial && gm.balance > 500 {
                                     withAnimation {
                                         gm.bet += 500
                                         gm.balance -= 500
                                         gm.isInitial = false
                                         gm.isChoose = true
                                     }
+                                }  else if  gm.isInitial && gm.balance > 100 && gm.balance <= 500 {
+                                    withAnimation {
+                                        gm.bet += 100
+                                        gm.balance -= 100
+                                        gm.isInitial = false
+                                        gm.isChoose = true
+                                    }
+                                } else if  gm.isInitial && gm.balance > 10 && gm.balance <= 100 {
+                                    withAnimation {
+                                        gm.bet += 10
+                                        gm.balance -= 10
+                                        gm.isInitial = false
+                                        gm.isChoose = true
+                                    }
+                                } else if  gm.isInitial && gm.balance > 0 && gm.balance <= 10 {
+                                    withAnimation {
+                                        gm.bet += 1
+                                        gm.balance -= 1
+                                        gm.isInitial = false
+                                        gm.isChoose = true
+                                    }
                                 } else if gm.isChoose && gm.balance >= 500 {
                                     gm.bet += 500
                                     gm.balance -= 500
+                                } else if gm.isChoose && gm.balance < 500 && gm.balance >= 100 {
+                                    gm.bet += 100
+                                    gm.balance -= 100
+                                }  else if gm.isChoose && gm.balance < 100 && gm.balance >= 10 {
+                                    gm.bet += 10
+                                    gm.balance -= 10
+                                }  else if gm.isChoose && gm.balance < 10 && gm.balance >= 1  {
+                                    gm.bet += 1
+                                    gm.balance -= 1
                                 }
+                                bet = String(gm.bet)
                             }
                     }
                 }
                 .padding(.horizontal, 18)
+                .offset(y: gm.size.width > 380 ? 0 : 24)
+                .offset(y: -keyboardHeight*0.4)
                 
                 HStack(spacing: 0) {
                     Image(GameImg.playerslot)
@@ -100,6 +166,7 @@ struct Gameplay: View {
                                 .foregroundStyle(Pallete.lightpink)
                         }
                 }
+                .offset(y: gm.size.width > 380 ? 0 : 24)
             }
             
             VStack {
@@ -182,12 +249,24 @@ struct Gameplay: View {
                    .offset(y: 4)
                 Spacer()
             }
-            .offset(y: 28)
+            .offset(y: gm.size.width > 380 ? 28 : 14)
             
-            VStack(spacing: size.height * 0.05) {
+            VStack(spacing: gm.size.width > 380 ? gm.size.height * 0.05 : gm.size.height * 0.01 ) {
                 
                 Button {
-                    gm.side = 0
+                    let betnow = Int(bet) ?? 0
+                    gm.balance += gm.bet
+                    if betnow > gm.balance {
+                        gm.bet = 1
+                        gm.balance -= 1
+                        bet = "1"
+                    } else {
+                        gm.bet = betnow
+                        gm.balance -= gm.bet
+                    }
+                        
+                    gm.side = -1
+                  //  gm.bet = Int(bet) ?? 0
                     gm.isChoose = false
                     gm.isGame = true
                     gm.setUpCardTimer()
@@ -199,28 +278,27 @@ struct Gameplay: View {
                     Image(GameImg.rect)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: size.width * 0.7)
-                        .shadow(color: .white, radius: gm.isChoose || gm.side == 0 ? 4 : 0)
+                        .frame(width: gm.size.width > 380 ? gm.size.width * 0.7 : gm.size.width * 0.6)
+                        .shadow(color: .white, radius: gm.isChoose || gm.side == -1 ? 4 : 0)
                         .overlay(alignment: .top) {
-                            VStack {
+                            VStack(spacing: 12) {
                                 Text("BANKER")
                                     .font(.custom(CustomFont.extraBold, size: 28))
-                                    .foregroundStyle(.white.opacity(gm.isInitial ? 0.5 : 1))
-                                    .padding(.top)
+                                    .foregroundStyle(.white.opacity(gm.isChoose || gm.whoWin == -1 ? 1 : 0.5))
+                                    .padding(.top,  8)
                                 HStack {
                                     ForEach(gm.bankerCards) { card in
-                                            Card(isFlipped: false, needToRotate: true, image: card.image, width: 75, height: 100)
+                                        Card(isFlipped: false, needToRotate: true, image: card.image, width: gm.size.width > 380 ? 75 : 60, height: gm.size.width > 380 ? 100 : 80)
                                     }
                                 }
                             }
                         }
                 }
                 .allowsHitTesting(gm.isChoose)
-               
-                
-                
+
                 Button {
                     gm.side = 1
+                   // gm.bet = Int(bet) ?? 0
                     gm.isChoose = false
                     gm.isGame = true
                     gm.setUpCardTimer()
@@ -229,28 +307,31 @@ struct Gameplay: View {
                     Image(GameImg.rect)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: size.width * 0.7)
+                        .frame(width: gm.size.width > 380 ? gm.size.width * 0.7 : gm.size.width * 0.6)
                         .shadow(color: .white, radius: gm.isChoose || gm.side == 1  ? 4 : 0)
                         .overlay(alignment: .bottom) {
-                            VStack {
+                            VStack(spacing: 12) {
                                 
                                 HStack {
                                     ForEach(gm.playerCards) { card in
-                                        Card(isFlipped: false, needToRotate: true, image: card.image, width: 75, height: 100)
+                                        Card(isFlipped: false, needToRotate: true, image: card.image, width: gm.size.width > 380 ? 75 : 60, height: gm.size.width > 380 ? 100 : 80)
                                     }
                                 }
                                 
                                 Text("PLAYER")
                                     .font(.custom(CustomFont.extraBold, size: 28))
-                                    .foregroundStyle(.white.opacity(gm.isInitial ? 0.5 : 1))
-                                    .padding(.bottom)
+                                    .foregroundStyle(.white.opacity(gm.isChoose || gm.whoWin == 1 ? 1 : 0.5))
+                                    .padding(.bottom, 12)
                           
                             }
                         }
                         .padding(4)
                 }
+                .opacity(keyboardHeight > 0 ? 0 : 1)
                 .allowsHitTesting(gm.isChoose)
             }
+            .offset(y: gm.size.width > 380 ? 0 : 12)
+         
             .overlay {
                 if gm.isChoose {
                     ZStack {
@@ -258,11 +339,31 @@ struct Gameplay: View {
                             .resizable()
                             .scaledToFit()
                         Text("CHOOSE YOUR SIDE")
-                            .font(.custom(CustomFont.extraBold, size: 28))
+                            .multilineTextAlignment(.center)
+                            .font(.custom(CustomFont.extraBold, size: gm.size.width > 380  ? 28 : 20 ))
                             .foregroundStyle(.white)
                             .shadow(radius: 4, y: 4)
+                            .onTapGesture {
+                                
+                                let betnow = Int(bet) ?? 0
+                                gm.balance += gm.bet
+                                if betnow > gm.balance {
+                                    gm.bet = 1
+                                    gm.balance -= 1
+                                    bet = "1"
+                                } else {
+                                    gm.bet = betnow
+                                    gm.balance -= gm.bet
+                                }
+                                
+                                gm.side = 0
+                                gm.isChoose = false
+                                gm.isGame = true
+                                gm.setUpCardTimer()
+                            }
+                            .allowsHitTesting(gm.isChoose)
+                        
                     }
-                    
                 }
                 
                 if gm.gameOver {
@@ -288,9 +389,8 @@ struct Gameplay: View {
                         
                     }
                 }
-                  
             }
-            .offset(y: -size.height*0.04)
+            .offset(y: -gm.size.height*0.04)
             
             if gm.isPaused {
                 ZStack {
@@ -309,29 +409,22 @@ struct Gameplay: View {
                                     Image(GameImg.returnbtn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: size.width * 0.6)
+                                        .frame(width: gm.size.width * 0.6)
                                         .padding(.bottom, 16)
                                 }
                                 Button {
-                                    
                                     gm.gameStats.append(GameStats(strategy: gm.strategy, income: gm.income, outcome: gm.outcome, time: gm.count, bankerWins: gm.bankerWinsCount, pushCount: gm.pushCount, playerWins: gm.playerWinsCount))
                                     UserDefaultService.shared.saveStructs(structs: gm.gameStats, forKey: "gameStats")
                                     gm.resetToInitial()
                                     dismiss()
-                                    
-                                    
                                 } label: {
                                     Image(GameImg.tomenu)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: size.width * 0.4)
+                                        .frame(width: gm.size.width * 0.4)
                                 }
                             }
                         }
-                    
-                    
-                    
-                    
                 }
             }
             if gm.isSelection {
@@ -339,21 +432,56 @@ struct Gameplay: View {
                     .environmentObject(gm)
             }
             
-            
             if gm.showDescription {
                 ShortDescription(article: gm.strategy, isFromGame: true)
                     .environmentObject(gm)
             }
         }
+        .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0
+        }
         .ignoresSafeArea()
         .navigationBarHidden(true)
         .preferredColorScheme(.dark)
         .onAppear {
+           // bet = gm.bet
             gm.addCards()
         }
         .onTapGesture {
+               
+            if gm.isInitial || gm.isChoose {
+                UIApplication.shared.endEditing()
+                let betnow = Int(bet) ?? 0
+                gm.balance += gm.bet
+                if betnow > gm.balance {
+                    gm.bet = 1
+                    gm.balance -= 1
+                    bet = "1"
+                } else {
+                    gm.bet = betnow
+                    gm.balance -= gm.bet
+                    
+                    if gm.bet > 0 {
+                        gm.isInitial = false
+                        gm.isChoose = true
+                    }
+                }
+            }
+            
             if gm.gameOver {
+                bet = ""
                 gm.finalizeRound()
+                if gm.balance == 0 {
+                    gm.gameStats.append(GameStats(strategy: gm.strategy, income: gm.income, outcome: gm.outcome, time: gm.count, bankerWins: gm.bankerWinsCount, pushCount: gm.pushCount, playerWins: gm.playerWinsCount))
+                    UserDefaultService.shared.saveStructs(structs: gm.gameStats, forKey: "gameStats")
+                    
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                        withAnimation {
+                            gm.resetToInitial()
+                            dismiss()
+                        }
+                    }
+                 
+                }
             }
         }
     }

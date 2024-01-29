@@ -12,14 +12,8 @@ struct Menu: View {
         NavigationView {
             ZStack {
                 Background()
-                    .background {
-                        GeometryReader { geo in
-                            Color.clear.onAppear {
-                                size = geo.size
-                            }
-                        }
-                    }
-                VStack {
+                
+                VStack(spacing: gm.size.width < 380 ? 8 : 20) {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Hello!")
@@ -35,6 +29,7 @@ struct Menu: View {
                         
                         NavigationLink {
                             Info()
+                                .environmentObject(gm)
                         } label: {
                             Image(Img.info)
                                 .resizable()
@@ -42,12 +37,13 @@ struct Menu: View {
                                 .frame(width: 45, height: 45)
                         }
                     }
-                    .padding([.horizontal, .top], 18)
+                    .padding([.horizontal, .top])
                     
                     Image(Img.menulogo)
                         .resizable()
                         .scaledToFit()
-                        .padding(.horizontal)
+                        .padding(.horizontal, gm.size.width > 380 ? 16 : 20)
+                        .frame(width: gm.size.width > 380 ?  gm.size.width*0.9 :  gm.size.width*0.8)
                         .overlay(alignment: .bottom) {
                             NavigationLink {
                                 Gameplay()
@@ -80,31 +76,32 @@ struct Menu: View {
                             Image(Img.history)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: size.width*0.42, height: size.height * 0.3)
+                                .frame(width: gm.size.width*0.42, height: gm.size.width > 380 ? gm.size.height * 0.3 : gm.size.height * 0.27)
                                 .padding(.trailing)
                         }
 
                         NavigationLink {
                             Strategies()
+                                .environmentObject(gm)
                         } label: {
                             Image(Img.strategies)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: size.width*0.42, height: size.height*0.3)
+                                .frame(width: gm.size.width*0.42, height: gm.size.width > 380 ? gm.size.height * 0.3 : gm.size.height * 0.27)
                         }
                     }
-                    .padding(18)
+                    .padding(gm.size.width > 380 ? 18 : 10)
                     
                     HStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(historyReflection)
-                            .frame(width: size.width*0.42, height: size.height*0.07)
+                            .frame(width: gm.size.width*0.42, height: gm.size.height*0.07)
                             .opacity(0.3)
                             .padding(.trailing)
                         
                         RoundedRectangle(cornerRadius: 10)
                             .fill(stratReflection)
-                            .frame(width: size.width*0.42, height: size.height*0.07)
+                            .frame(width: gm.size.width*0.42, height: gm.size.height*0.07)
                             .opacity(0.2)
                     }
                 }

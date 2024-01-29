@@ -12,7 +12,7 @@ struct StrategyDescription: View {
         ZStack {
             Background()
             VStack {
-                Header(text: articles[article-1].title , fontSize: 20)
+                Header(text: articles[article-1].title , fontSize: 20, size: gm.size)
                     .offset(y: 4)
                 Image("man\(article)")
                     .resizable()

@@ -12,14 +12,13 @@ struct ShortDescription: View {
     var isFromGame = false
     
     @EnvironmentObject var gm: GameLogic
-  //  @State var showMore = false
     
     var body: some View {
         ZStack {
             Background()
             VStack {
-                Header(text: articles[article-1].title , fontSize: 20)
-                    .offset(y: 4)
+                Header(text: articles[article-1].title , fontSize: 20, size: gm.size, isFromGame: isFromGame)
+                    .offset(y: gm.size.width < 380 ?  4 : 16)
                 Image("man\(article)")
                     .resizable()
                     .scaledToFit()
@@ -32,6 +31,7 @@ struct ShortDescription: View {
                             Text(shortDescription[article-1])
                                 .font(.custom(CustomFont.medium, size: 18))
                                 .foregroundStyle(.white)
+                                .padding(.horizontal, 8)
                             
                             VStack(alignment: .center)
                             {
@@ -43,7 +43,7 @@ struct ShortDescription: View {
                                     Image(GameImg.more)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: gm.size.width * 0.5)
+                                        .frame(width: gm.size.width * 0.6)
                                         .padding(.vertical)
                                 }
                                     if !isFromGame {
@@ -51,6 +51,7 @@ struct ShortDescription: View {
                                             dismiss()
                                             gm.isSelection = false
                                             gm.isInitial = true
+                                            gm.setupTimer()
                                         } label: {
                                             Image(GameImg.play)
                                                 .resizable()
@@ -68,36 +69,15 @@ struct ShortDescription: View {
                                         .scaledToFit()
                                         .padding()
                                         .frame(width: gm.size.width * 0.4)
-                                        .frame(width: gm.size.width, alignment: .center)
+                                        .frame(width: gm.size.width*0.9, alignment: .center)
                                 }
                             }
                     }
                             .padding()
-                            .frame(width: gm.size.width)
-                        
-//                        Text("Key Aspects:")
-//                            .font(.custom(CustomFont.bold, size: 24))
-//                            .foregroundStyle(.white)
-//                            .padding(.vertical, 4)
-//                        
-//                        ForEach(0..<articles[article-1].keyAspects.count) { i in
-//                            HStack(alignment: .top) {
-//                                Text("\(i+1).")
-//                                Text(articles[article-1].keyAspects[i])
-//                            }
-//                            .font(.custom(CustomFont.medium, size: 18))
-//                            .foregroundStyle(.white)
-//                        }
-//                        Text("Conclusion:")
-//                            .font(.custom(CustomFont.bold, size: 24))
-//                            .foregroundStyle(.white)
-//                            .padding(.vertical, 4)
-//                        Text(articles[article - 1].conclusion)
-//                            .font(.custom(CustomFont.medium, size: 18))
-//                            .foregroundStyle(.white)
+
                     }
                     Color.clear
-                        .frame(height: 100)
+                        .frame(width: 20, height: 80)
                     }
                     .padding()
             }

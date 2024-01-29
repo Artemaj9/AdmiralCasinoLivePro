@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var gm: GameLogic
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            if gm.isSplash {
+                Splash()
+                    .environmentObject(gm)
+                    .transition(.move(edge: .trailing))
+                
+            } else  {
+                Menu()
+                    .environmentObject(gm)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .leading),
+                        removal: .slide))
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(GameLogic())
 }

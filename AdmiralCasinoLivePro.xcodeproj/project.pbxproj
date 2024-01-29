@@ -34,7 +34,6 @@
 		ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB062B618AB900FF6846 /* ArticleModel.swift */; };
 		ACD5FB092B619F9500FF6846 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB082B619F9500FF6846 /* HistoryCell.swift */; };
 		ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */; };
-		ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */; };
 		ACD5FB8E2B6587E100FF6846 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */; };
 		ACD5FB912B65A04600FF6846 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB902B65A04600FF6846 /* Picture.swift */; };
 		ACD5FB932B65A09200FF6846 /* Cardback.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB922B65A09200FF6846 /* Cardback.swift */; };
@@ -43,6 +42,11 @@
 		ACD5FB992B65D3C800FF6846 /* GameStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */; };
 		ACD5FB9B2B665D6700FF6846 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB9A2B665D6700FF6846 /* Selection.swift */; };
 		ACD5FB9E2B665FE100FF6846 /* ShortDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FB9D2B665FE100FF6846 /* ShortDescription.swift */; };
+		ACD5FBA12B66792100FF6846 /* Int+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FBA02B66792100FF6846 /* Int+ext.swift */; };
+		ACD5FBA32B66833D00FF6846 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FBA22B66833D00FF6846 /* Splash.swift */; };
+		ACD5FBA52B66939500FF6846 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FBA42B66939500FF6846 /* TextField.swift */; };
+		ACD5FBA72B669B5200FF6846 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FBA62B669B5200FF6846 /* UIApplication.swift */; };
+		ACD5FBA92B669B8600FF6846 /* Publishers+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5FBA82B669B8600FF6846 /* Publishers+ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +79,6 @@
 		ACD5FB062B618AB900FF6846 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		ACD5FB082B619F9500FF6846 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		ACD5FB0C2B61A1A100FF6846 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayHeader.swift; sourceTree = "<group>"; };
 		ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		ACD5FB902B65A04600FF6846 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		ACD5FB922B65A09200FF6846 /* Cardback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardback.swift; sourceTree = "<group>"; };
@@ -84,6 +87,11 @@
 		ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsModel.swift; sourceTree = "<group>"; };
 		ACD5FB9A2B665D6700FF6846 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		ACD5FB9D2B665FE100FF6846 /* ShortDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDescription.swift; sourceTree = "<group>"; };
+		ACD5FBA02B66792100FF6846 /* Int+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ext.swift"; sourceTree = "<group>"; };
+		ACD5FBA22B66833D00FF6846 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		ACD5FBA42B66939500FF6846 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		ACD5FBA62B669B5200FF6846 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		ACD5FBA82B669B8600FF6846 /* Publishers+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,12 +127,12 @@
 				ACA40DCD2B607290001C6851 /* Info.plist */,
 				ACA40DA92B60664E001C6851 /* AdmiralCasinoLiveProApp.swift */,
 				ACA40DAB2B60664E001C6851 /* ContentView.swift */,
-				ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */,
 				ACA40DB92B606BAC001C6851 /* Screens */,
 				ACA40DBA2B606BB9001C6851 /* Components */,
 				ACD5FAF92B6145E600FF6846 /* Models */,
 				ACD5FB0B2B61A17B00FF6846 /* UserDefaults */,
 				ACA40DC02B606F5A001C6851 /* Fonts */,
+				ACD5FB9F2B66790900FF6846 /* Extensions */,
 				ACA40DBD2B606BF8001C6851 /* Resources */,
 				ACA40DAF2B606650001C6851 /* Preview Content */,
 			);
@@ -144,6 +152,7 @@
 			children = (
 				ACA40DB72B606BA8001C6851 /* Menu.swift */,
 				ACD5FAF52B61368500FF6846 /* Info.swift */,
+				ACD5FBA22B66833D00FF6846 /* Splash.swift */,
 				ACD5FAFC2B614A9500FF6846 /* Strategies.swift */,
 				ACD5FB002B6151AD00FF6846 /* History.swift */,
 				ACD5FB022B61560D00FF6846 /* StrategyDescription.swift */,
@@ -159,7 +168,7 @@
 				ACD5FB8F2B65A02C00FF6846 /* CardsAnimation */,
 				ACD5FB082B619F9500FF6846 /* HistoryCell.swift */,
 				ACD5FAF72B61377C00FF6846 /* Header.swift */,
-				ACD5FB102B61BAB300FF6846 /* GameplayHeader.swift */,
+				ACD5FBA42B66939500FF6846 /* TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 		ACD5FAF92B6145E600FF6846 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACD5FB8D2B6587E100FF6846 /* GameLogic.swift */,
 				ACD5FAFA2B61460300FF6846 /* InfoModel.swift */,
 				ACD5FB982B65D3C800FF6846 /* GameStatsModel.swift */,
 				ACD5FAFE2B614FD200FF6846 /* StrategyModel.swift */,
@@ -227,6 +237,16 @@
 				ACD5FB042B615D3B00FF6846 /* Gameplay.swift */,
 			);
 			path = Gameplay;
+			sourceTree = "<group>";
+		};
+		ACD5FB9F2B66790900FF6846 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ACD5FBA02B66792100FF6846 /* Int+ext.swift */,
+				ACD5FBA62B669B5200FF6846 /* UIApplication.swift */,
+				ACD5FBA82B669B8600FF6846 /* Publishers+ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD5FBA72B669B5200FF6846 /* UIApplication.swift in Sources */,
 				ACD5FAF82B61377C00FF6846 /* Header.swift in Sources */,
+				ACD5FBA32B66833D00FF6846 /* Splash.swift in Sources */,
 				ACD5FAFB2B61460300FF6846 /* InfoModel.swift in Sources */,
 				ACD5FB992B65D3C800FF6846 /* GameStatsModel.swift in Sources */,
 				ACD5FB012B6151AD00FF6846 /* History.swift in Sources */,
@@ -321,14 +343,16 @@
 				ACD5FB9E2B665FE100FF6846 /* ShortDescription.swift in Sources */,
 				ACD5FB052B615D3B00FF6846 /* Gameplay.swift in Sources */,
 				ACD5FB072B618AB900FF6846 /* ArticleModel.swift in Sources */,
+				ACD5FBA92B669B8600FF6846 /* Publishers+ext.swift in Sources */,
 				ACA40DCF2B607FB3001C6851 /* Fonts.swift in Sources */,
 				ACD5FB092B619F9500FF6846 /* HistoryCell.swift in Sources */,
 				ACD5FB912B65A04600FF6846 /* Picture.swift in Sources */,
 				ACA40DD12B60FBDD001C6851 /* Colors.swift in Sources */,
+				ACD5FBA52B66939500FF6846 /* TextField.swift in Sources */,
 				ACA40DBF2B606C18001C6851 /* Images.swift in Sources */,
+				ACD5FBA12B66792100FF6846 /* Int+ext.swift in Sources */,
 				ACA40DBC2B606BE3001C6851 /* Background.swift in Sources */,
 				ACD5FB932B65A09200FF6846 /* Cardback.swift in Sources */,
-				ACD5FB112B61BAB300FF6846 /* GameplayHeader.swift in Sources */,
 				ACD5FB0D2B61A1A100FF6846 /* UserDefault.swift in Sources */,
 				ACD5FB9B2B665D6700FF6846 /* Selection.swift in Sources */,
 				ACD5FAFF2B614FD200FF6846 /* StrategyModel.swift in Sources */,

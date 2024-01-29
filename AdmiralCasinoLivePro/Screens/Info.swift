@@ -8,14 +8,14 @@ struct Info: View {
     
     @Environment(\.dismiss) var dismiss
     @State var screen = 1
-    let size: CGSize = CGSize(width: 395, height: 852)
+    @EnvironmentObject var gm: GameLogic
     
     var body: some View {
         ZStack {
             Background()
             VStack {
-                Header(text: "INFO")
-                
+            Header(text: "INFO", size: gm.size)
+            ScrollView(showsIndicators: false) {
                 Image("infoimg\(screen)")
                     .resizable()
                     .scaledToFit()
@@ -26,7 +26,7 @@ struct Info: View {
                         .font(.custom(CustomFont.black, size: 24))
                         .padding(.bottom, 8)
                         .foregroundStyle(.yellowtxt)
-                   
+                    
                     Text(infoScreens[screen - 1].description)
                         .font(.custom(CustomFont.medium, size: 18))
                         .foregroundStyle(.white)
@@ -48,13 +48,13 @@ struct Info: View {
                     HStack {
                         Button {
                             if screen > 1 {
-                               screen -= 1
+                                screen -= 1
                             }
                         } label: {
                             Image(Img.backbtn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: size.width*0.38)
+                                .frame(width: gm.size.width > 380 ?  gm.size.width*0.38 : gm.size.width * 0.34)
                         }
                         
                         Button {
@@ -70,9 +70,13 @@ struct Info: View {
                         }
                     }
                     .padding(.bottom, 16)
-                    .padding()
+                    .scaleEffect(gm.size.width < 380 ? 0.9 : 1)
+                    .padding(gm.size.width > 380 ? 16 : 20)
                 }
+                Color.clear
+                    .frame(height: 80)
             }
+        }
             .ignoresSafeArea()
         }
         .navigationBarHidden(true)
@@ -83,4 +87,5 @@ struct Info: View {
 
 #Preview {
     Info()
+        .environmentObject(GameLogic())
 }

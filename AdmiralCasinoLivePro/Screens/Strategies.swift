@@ -6,12 +6,13 @@ import SwiftUI
 
 struct Strategies: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var gm: GameLogic
     
     var body: some View {
         ZStack {
             Background()
             VStack {
-                Header(text: "STRATEGIES")
+                Header(text: "STRATEGIES", size: gm.size)
                 
                 ScrollView(showsIndicators: false) {
                     ForEach(0..<3) { index in
@@ -49,4 +50,5 @@ struct Strategies: View {
 
 #Preview {
     Strategies()
+        .environmentObject(GameLogic())
 }

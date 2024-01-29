@@ -9,7 +9,7 @@ struct AdmiralCasinoLiveProApp: App {
     @StateObject var gm = GameLogic()
     var body: some Scene {
         WindowGroup {
-            Menu()
+            ContentView()
                 .environmentObject(gm)
         }
     }

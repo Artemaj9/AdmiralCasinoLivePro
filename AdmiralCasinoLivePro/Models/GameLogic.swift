@@ -8,12 +8,15 @@ import Foundation
 
 class GameLogic: ObservableObject {
     
-    
+    @Published var isSplash = true
     @Published var isSelection = true
     @Published var isInitial = false
     @Published var isChoose = false
     @Published var isGame = false
     @Published var isPaused = false
+    
+    
+    @Published var focusOnPair = false
     // -1 - banker 1 - player
     @Published var side = -10
 
@@ -60,6 +63,10 @@ class GameLogic: ObservableObject {
     
     
     func resetToInitial () {
+        
+        for item in cancellables {
+            item.cancel()
+        }
         isSelection = true
         isInitial = false
         isChoose = false
@@ -91,6 +98,7 @@ class GameLogic: ObservableObject {
         twoCardsDone = false
         gameOver = false
         cardTimerCount = 0
+        focusOnPair = false
     }
     
     func addCards() {
@@ -164,22 +172,42 @@ class GameLogic: ObservableObject {
     }
     
     func finalizeRound() {
-        if whoWin == side {
-            balance += bet*2
-            income += bet
-        } else {
-            outcome += bet
-            bet = 0
-          
+        if focusOnPair  {
+            if ((side == -1 && bankerCards.count == 2) || (side == 1 && playerCards.count == 2)) && (bankerCards[0].number == bankerCards[1].number) && whoWin == side {
+                balance = bet  * 11
+                income += bet * 10
+            } else  {
+                outcome += bet
+                bet = 0
+            }
         }
         
-        if whoWin == 1 {
-            playerWinsCount += 1
-        } else if whoWin == -1 {
-            bankerWinsCount += 1
-        } else if whoWin == 0 {
-            pushCount += 1
+        if !focusOnPair {
+            if side == 0 && whoWin == 0 {
+                balance += bet * 9
+                income += bet * 8
+            } else if side == 0 && whoWin != 0{
+                outcome += bet
+                bet = 0
+            } else {
+                if whoWin == side  {
+                    balance += bet*2
+                    income += bet
+                } else {
+                    outcome += bet
+                    bet = 0
+                    
+                }
+            }
         }
+            
+            if whoWin == 1 {
+                playerWinsCount += 1
+            } else if whoWin == -1 {
+                bankerWinsCount += 1
+            } else if whoWin == 0 {
+                pushCount += 1
+            }
         
         
         playerPercent = percent(playerWinsCount)
@@ -275,14 +303,7 @@ class GameLogic: ObservableObject {
                             playerPoints += playerCards.last?.number ?? 0
                             playerPoints = playerPoints % 10
                         }
-                        
-                        // раздача первых двух карт
-                        
-                        // отмена таймера
-                        //                if cardTimerCount == 20 {
-                        //                    finalizeRound()
-                        //                    self.cardTimer?.cancel()
-                        //                }
+
                     }
                 }
             }

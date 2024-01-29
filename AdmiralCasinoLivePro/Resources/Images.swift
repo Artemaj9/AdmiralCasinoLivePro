@@ -22,6 +22,8 @@ enum Img {
     static let income = "income"
     static let outcome = "outcome"
     static let statbg = "historybg"
+    static let logo = "purelogo"
+    static let splashTitle = "splashtitle"
 }
 
 enum GameImg {

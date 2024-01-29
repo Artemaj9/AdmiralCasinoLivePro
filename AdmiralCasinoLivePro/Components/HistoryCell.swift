@@ -12,6 +12,7 @@ struct HistoryCell: View {
     let pushCount: Int
     let income: Int
     let outcome: Int
+    let timerCount: Int
     
     var body: some View {
         ZStack {
@@ -35,7 +36,7 @@ struct HistoryCell: View {
                                 .foregroundStyle(.white)
                                 .shadow(color: Color("sessionShadow"), radius: 2, y: 2)
                             Spacer()
-                            Text("00:01:24")
+                            Text(timerCount.secToTime())
                                 .font(.custom(CustomFont.semiBold, size: 18))
                                 .foregroundStyle(Pallete.timergray)
                         }
@@ -110,5 +111,5 @@ struct HistoryCell: View {
 }
 
 #Preview {
-    HistoryCell(image: 3, number: 1, playerWinsCount: 5, bankerWinsCount: 4, pushCount: 7, income: 700, outcome: 200)
+    HistoryCell(image: 3, number: 1, playerWinsCount: 5, bankerWinsCount: 4, pushCount: 7, income: 700, outcome: 200, timerCount: 357)
 }
